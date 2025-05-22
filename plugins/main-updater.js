@@ -16,24 +16,24 @@ cmd({
     if (!isOwner) return reply("This command is only for the bot owner.");
 
     try {
-        await reply("🔍 Checking for KHAN-MD updates...");
+        await reply("🔍 Checking for Mr-rabbit-xd updates...");
 
         // Fetch the latest commit hash from GitHub
-        const { data: commitData } = await axios.get("https://api.github.com/repos/JawadYT36/KHAN-MD/commits/main");
+        const { data: commitData } = await axios.get("https://api.github.com/repos/Mr-rabbit-xd/KHAN-MD/commits/main");
         const latestCommitHash = commitData.sha;
 
         // Get the stored commit hash from the database
         const currentHash = await getCommitHash();
 
         if (latestCommitHash === currentHash) {
-            return reply("✅ Your KHAN-MD bot is already up-to-date!");
+            return reply("✅ Your Mr-rabbit-xd bot is already up-to-date!");
         }
 
-        await reply("🚀 Updating KHAN-MD Bot...");
+        await reply("🚀 Updating Mr-rabbit-xd Bot...");
 
         // Download the latest code
         const zipPath = path.join(__dirname, "latest.zip");
-        const { data: zipData } = await axios.get("https://github.com/JawadYT36/KHAN-MD/archive/main.zip", { responseType: "arraybuffer" });
+        const { data: zipData } = await axios.get("https://github.com/Mr-rabbit-xd/KHAN-MD/archive/main.zip", { responseType: "arraybuffer" });
         fs.writeFileSync(zipPath, zipData);
 
         // Extract ZIP file
